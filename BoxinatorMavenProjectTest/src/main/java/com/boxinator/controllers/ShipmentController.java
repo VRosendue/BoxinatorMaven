@@ -20,7 +20,7 @@ import com.boxinator.project.services.ShipmentService;
 
 @CrossOrigin
 @RestController
-@RequestMapping(path = "/shipments")
+@RequestMapping(path = "/api/shipments")
 public class ShipmentController {
 
 

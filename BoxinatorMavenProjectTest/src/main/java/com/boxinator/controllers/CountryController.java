@@ -21,7 +21,7 @@ import com.boxinator.project.services.CountryService;
 import java.util.List;;
 
 @CrossOrigin
-@RequestMapping(path= "/countries")
+@RequestMapping(path= "/api/countries")
 @RestController
 public class CountryController {
 

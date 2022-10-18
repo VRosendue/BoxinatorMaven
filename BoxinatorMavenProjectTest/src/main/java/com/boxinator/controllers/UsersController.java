@@ -19,7 +19,7 @@ import com.boxinator.project.services.UserService;
 
 @CrossOrigin
 @RestController
-@RequestMapping(path =  "/users")
+@RequestMapping(path = "/api/users")
 public class UsersController {
 
 	@Autowired
