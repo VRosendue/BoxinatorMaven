@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +18,7 @@ import com.boxinator.models.Shipments;
 import com.boxinator.project.services.ShipmentService;
 
 
-
+@CrossOrigin
 @RestController
 @RequestMapping(path = "/shipments")
 public class ShipmentController {
@@ -26,6 +27,7 @@ public class ShipmentController {
 	@Autowired
 	private ShipmentService shipmentService;
 
+	
 	@GetMapping
 	public ResponseEntity<List<Shipments>> getAllShipments() {
 		return shipmentService.getAllShipments();
@@ -35,16 +37,19 @@ public class ShipmentController {
 	public ResponseEntity<Shipments> getShipmentById(@PathVariable long shipmentId) {
 		return shipmentService.getShipmentById(shipmentId);
 	}
-
+	
 	@PostMapping
 	public ResponseEntity<Shipments> createShipment(@RequestBody Shipments newShipment){
 		return shipmentService.createShipment(newShipment);
 	}
-
+	
+	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Shipments> deleteShipment(@PathVariable(value="id")Long id){
 		return shipmentService.deleteShipment(id);
 	}
+	
+	
 	@PutMapping("/{id}")
 	public ResponseEntity<Shipments>updateShipment(@PathVariable(value="id")Long id, @Validated @RequestBody Shipments newShipment){
 		return shipmentService.updateShipment(newShipment, id);
