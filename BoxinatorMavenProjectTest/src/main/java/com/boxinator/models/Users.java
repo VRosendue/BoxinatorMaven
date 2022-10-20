@@ -49,9 +49,7 @@ public class Users {
 	@Column
 	private String phoneNumber; //has to be String if we want to keep landlines (example +45 +44 in UK and Denmark)
 	
-	
-	@Basic
-	@Temporal(TemporalType.DATE)
+	@Column
 	private Date created_at;
 
 
