@@ -50,10 +50,7 @@ public class Users {
 	@Column
 	private String phoneNumber; //has to be String if we want to keep landlines (example +45 +44 in UK and Denmark)
 	
-	@CreationTimestamp
-        @Temporal(TemporalType.TIMESTAMP)
-        @Column(name= "created_at")
-        private Date created_at;
+	
 
 
 
@@ -155,13 +152,4 @@ public class Users {
 		this.phoneNumber = phoneNumber;
 	}
 
-
-	public Date getCreated_at() {
-		return created_at;
-	}
-
-
-	public void setCreated_at(Date created_at) {
-		this.created_at = created_at;
-	}
 }
