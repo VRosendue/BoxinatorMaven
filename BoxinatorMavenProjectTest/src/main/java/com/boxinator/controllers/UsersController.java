@@ -48,7 +48,7 @@ public class UsersController {
 		return userService.getAllUsers();
 	}
 
-	@PostMapping()
+	@PostMapping
 	public ResponseEntity<Users> addUser(@RequestBody Users newUser) {
 		return userService.createUser(newUser);
 	}
