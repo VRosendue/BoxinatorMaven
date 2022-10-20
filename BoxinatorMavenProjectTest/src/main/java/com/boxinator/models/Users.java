@@ -13,6 +13,7 @@ import javax.persistence.TemporalType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Getter
@@ -49,8 +50,11 @@ public class Users {
 	@Column
 	private String phoneNumber; //has to be String if we want to keep landlines (example +45 +44 in UK and Denmark)
 	
-	@Column
-	private Date created_at;
+	@CreationTimestamp
+        @Temporal(TemporalType.TIMESTAMP)
+        @Column(name= "created_at")
+        private Date created_at;
+
 
 
 	public boolean findByEmail() {
