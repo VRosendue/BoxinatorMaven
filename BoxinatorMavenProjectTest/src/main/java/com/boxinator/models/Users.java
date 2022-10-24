@@ -10,10 +10,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.CreationTimestamp;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
+
 
 @Entity
 @Getter
@@ -48,11 +51,20 @@ public class Users {
 	private String userZipCode; //has to be String for UK zipcodes (example: BA8) 
 
 	@Column
-	private String phoneNumber; //has to be String if we want to keep landlines (example +45 +44 in UK and Denmark)
+	private String phoneNumber; // has to be String if we want to keep landlines (example +45 +44 in UK and
+		// Denmark)
 	
-	
+	@Basic
+	@Temporal(TemporalType.DATE)
+	private Date created_at;
 
-
+	/*
+	 * @CreationTimestamp
+	 * 
+	 * @Temporal(TemporalType.TIMESTAMP)
+	 * 
+	 * @Column(name= "created_at") private Date created_at;
+	 */
 
 	public boolean findByEmail() {
 		if (getEmail()==this.email) {
@@ -152,4 +164,11 @@ public class Users {
 		this.phoneNumber = phoneNumber;
 	}
 
+
+	
+	 public Date getCreated_at() { return created_at; }
+	  
+	  
+	  public void setCreated_at(Date created_at) { this.created_at = created_at; }
+	 
 }
